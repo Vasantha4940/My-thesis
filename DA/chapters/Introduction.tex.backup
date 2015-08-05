@@ -1,0 +1,110 @@
+
+\chapter{Introduction}
+\label{chapter:Introduction}
+
+
+\textit{"The only truly secure system is one that is powered off, cast in a block of concrete 
+and sealed in a lead-lined room with armed guards."
+\textemdash  \textbf{ Gene Spafford}} \\
+
+According to Forbes 2015~\cite{forbes:bill}, one among the topmost data breaches occurred in the 
+previous years is Neiman Marcus hack.
+In January 2013, many debit and credit card information of almost 350,000 customers have been
+hacked. It is believed that the breach happened because of a malicious software
+that was installed onto the Neiman Marcus system. This software collected all the payment
+card information from customers who purchased.
+This proves that the software has helped the attackers to leak all the sensitive information
+through which they could get access to the system without leaving any trace of hacking.
+Sensitive information can be leaked in many ways~\cite{mitre:CWE}. It can be through the environmental variables 
+which contain the sensitive information about any remote server, through a log file that was
+used while debugging the application where access to that file was not restricted or through a
+command shell error message which indicates that the web application code has some unhandled exception.
+In the last case, the attacker can take advantage of that error causing
+condition in order to gain access to the system without authorisation.
+
+
+The goal of this thesis is to develop an algorithm for fault localization(localizer) and also to repair the 
+information exposure buggy programs. Repairing is done using the precise information like failure detection,
+bug diagnosis, buggy variables which are nothing but the program variables that directly influence
+the appearance of a bug in the program.
+For example the buggy variable "line" reported by our information exposure checker [ref]. In order to 
+repair the buggy program we make use of failure detection and bug diagnosis data to generate the quick fixes
+for information exposure bugs with the help of a refactoring wizard. We have developed a localization algorithm 
+in order to localize the bug. We need a localizer since the cause for the bug will not be the place 
+
+
+
+The failure detection and bug diagnosis data is used to generate quick fixes for
+buffer overflows and to support the repair process of removing the bug with a
+refactoring wizard. A novel algorithm is used to detect possible insertion loca-
+tions in code for the generated code patches ((a) ”in-place”—directly before the
+statement which contains the bug and (b) by searching for other, not ”in-place”
+locations where the bug can be fixed). Our approach for generating program
+repairs is based on: code patch patterns, SMT solving and possible quick fix
+locations searching in program execution paths which could affect the program
+behavior by inserting a patch at a not ”in-place” location. The generated patches
+are sound (e.g., do not change the behavior of the program for input which does
+not trigger the bug), final (no further human refinement needed), human read-
+able (no alien code), syntactically correct and compilable.
+We address offline behavioral repair [24] (by modifying the source code).
+Others have addressed state [8] or test-suite based program repair such as Gen-
+Prog [18] and PAR [17]. The defect class which we address is inappropriate index
+variable assignment which results in an incorrect usage of the buffer index range.
+The fix defect class consists of input checks based on semi-defined patch pat-
+terns. The aim of the quick-fix is fail-secure error mitigation (e.g., to prevent
+that an attacker exploits the error in order to gain system access). The final
+version of the patch is determined using SMT solving.
+Program repair lies at the conjunction of two dimensions (first, an oracle is
+needed to decide what is incorrect in order to detect the bug (first dimension)
+and another oracle to tell what should be kept correct for sake of non-regression
+(second dimension)) of software correctness [24]. We used the same SMT con-
+straint system which was used to trigger the bug for defining what is incorrect
+in the program. Additionally, we created a second SMTLib (constraint system
+definition language used by the Z3 [7] solver) constraint system consisting of the
+previously mentioned constraint system and new SMTLib constraints used to
+impose input saturation constraints on the buggy variable.
+Our patches are generated automatically and inserted semi-automatically offline
+with the possibility to insert them also online.
+
+
+
+
+\section{Information Exposure Bug}
+about info expo bug.
+ 
+ \section{Motivation with Example}
+Write about motivating example.
+
+\section{Security Hazards}
+securitx hazards of info expo bugs
+ 
+\section{Basic Terminologies}
+Terminologies
+
+\section{Contribution}
+Contribution
+
+
+\chapter{Technical and Scientific Fundamentals}
+\label{chapter:Technical}
+
+\section{Information Exposure Bug with examples}
+about info expo bug.
+ 
+ \section{Different Attacks}
+Write about motivating example.
+
+\section{Analysis Techniques}
+like data flow and control flow
+
+\section{Program Representation}
+Terminologies
+
+\section{Code Transformation}
+Contribution
+
+\section{Analysis Methods}
+like static, dynamic or combined
+
+\chapter{Related Work}
+\label{chapter:related}

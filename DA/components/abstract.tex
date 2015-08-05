@@ -1,0 +1,48 @@
+% Abstract for the TUM report document
+% Included by MAIN.TEX
+
+
+\clearemptydoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Abstract}	
+
+
+
+
+
+\vspace*{2cm}
+\begin{center}
+{\Large \bf Abstract}
+\end{center}
+\vspace{1cm}
+
+Automatically detecting, localizing and fixing information errors is very much needed
+in current generation as people are not ready to spend much on their time in debugging and
+fixing the errors. In general debugging requires a lot
+of time and effort. Even if the bug's root cause is known, finding the bug and fixing it is a tedious task.
+The information that is exposed may be very valuable information
+like passwords or any information that is used for launching many deadly attacks.
+In order to fix the information exposure bug we should refactor the code in such
+a way that the attacks or information exposure can be restricted. 
+
+
+The main objective of this master thesis is to develop a quick fix generation tool for information
+exposure bugs. Based on the available information exposure checker which detects
+errors in the open source Juliet test cases: CWE-526, CWE-534 and CWE-535 a new
+quick fix tool for the removal of these bugs should be developed. The bug location and
+the bug fix location can be different (code lines) in a buggy program. Thus, 
+there is a need for developing a bug quick fix localization algorithm based on software bug fix
+localization techniques. It should help to determine the code location where the quick
+fix should be inserted. Based on the bug location the developed algorithm should
+indicate where the quick fix should be inserted in the program.
+We can consider a bug fix to be a valid fix if it is able to remove the confidential parameter inside a
+function call to a system trust boundary. After the quick fix location was determined and the format
+of the quick fix was chosen then the quick fix will be inserted in the program with the
+help of the Eclipse CDT/LTK API.
+
+
+The effectiveness of the implemented code refactoring is checked by re-running the information flow checker
+on the above mentioned open source Juliet test cases. If the checker detects no bug then
+the code patches are considered to be valid. The generated patches are syntactically
+correct, can be semi-automatically inserted into code and do not need
+additional human refinement. The generated patches should be correct and sound.
