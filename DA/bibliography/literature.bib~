@@ -7,11 +7,9 @@
 	year = "1994"
 }
 
-@article{forbes:bill,
-	author = "Bill, H.",
-	journal = "http://www.forbes.com/sites/moneybuilder/2015/01/13/the-big-data-breaches-of-2014/",
+@article{cve:details,
+	journal = "http://www.cvedetails.com/cwe-definitions/1/orderbyvulnerabilities.html?order=2\&trc=668\&sha=0427874cc45423ccb6974ee25935fbfceac76fcb",
 	month = "jan",
-	title = "{Article from forbes}",
 	year = "2015"
 }
 

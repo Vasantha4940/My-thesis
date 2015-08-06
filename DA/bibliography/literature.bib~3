@@ -1,9 +1,22 @@
+@comment{x-kbibtex-personnameformatting=<%l><, %f>}
 
+@book{latex,
+	author = "Lamport, Leslie",
+	publisher = "Addison-Wesley Professional",
+	title = "{LaTeX : A Documentation Preparation System User's Guide and Reference Manual}",
+	year = "1994"
+}
 
-@BOOK{latex,
-  title = {LaTeX : A Documentation Preparation System User's Guide and Reference Manual},
-  publisher = {Addison-Wesley Professional},
-  year = {1994},
-  author = {Leslie Lamport}
+@article{forbes:bill,
+	author = "Bill, H.",
+	journal = "http://www.forbes.com/sites/moneybuilder/2015/01/13/the-big-data-breaches-of-2014/",
+	month = "jan",
+	title = "{Article from forbes}",
+	year = "2015"
+}
+
+@article{mitre:CWE,
+	journal = "https://cwe.mitre.org/",
+	title = "{CWE}"
 }
 

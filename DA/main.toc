@@ -7,39 +7,39 @@
 \contentsline {chapter}{Outline of the Thesis}{xiii}{section*.4}
 \contentsline {part}{\numberline {I}Introduction and Theory}{1}{part.1}
 \contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}
-\contentsline {section}{\numberline {1.1}Information Exposure Bug}{3}{section.1.1}
-\contentsline {section}{\numberline {1.2}Motivation with Example}{3}{section.1.2}
-\contentsline {section}{\numberline {1.3}Security Hazards}{3}{section.1.3}
-\contentsline {section}{\numberline {1.4}Basic Terminologies}{3}{section.1.4}
-\contentsline {section}{\numberline {1.5}Contribution}{3}{section.1.5}
-\contentsline {chapter}{\numberline {2}Technical and Scientific Fundamentals}{5}{chapter.2}
-\contentsline {section}{\numberline {2.1}Information Exposure Bug with examples}{5}{section.2.1}
-\contentsline {section}{\numberline {2.2}Different Attacks}{5}{section.2.2}
-\contentsline {section}{\numberline {2.3}Analysis Techniques}{5}{section.2.3}
-\contentsline {section}{\numberline {2.4}Program Representation}{5}{section.2.4}
-\contentsline {section}{\numberline {2.5}Code Transformation}{5}{section.2.5}
-\contentsline {section}{\numberline {2.6}Analysis Methods}{5}{section.2.6}
-\contentsline {chapter}{\numberline {3}Related Work}{7}{chapter.3}
-\contentsline {part}{\numberline {II}Design and Development}{9}{part.2}
-\contentsline {chapter}{\numberline {4}Localization Algorithm}{11}{chapter.4}
-\contentsline {chapter}{\numberline {5}Approach}{13}{chapter.5}
-\contentsline {section}{\numberline {5.1}About the Tool}{13}{section.5.1}
-\contentsline {section}{\numberline {5.2}Bug Detection with SMT}{13}{section.5.2}
-\contentsline {section}{\numberline {5.3}Semi Automated Patch insertion Wizard}{13}{section.5.3}
-\contentsline {chapter}{\numberline {6}Implementation}{15}{chapter.6}
-\contentsline {part}{\numberline {III}Evaluation and Discussion}{17}{part.3}
-\contentsline {chapter}{\numberline {7}Evaluation}{19}{chapter.7}
-\contentsline {section}{\numberline {7.1}Test Setup}{19}{section.7.1}
-\contentsline {section}{\numberline {7.2}Methodology}{19}{section.7.2}
-\contentsline {section}{\numberline {7.3}Correctness validation}{19}{section.7.3}
-\contentsline {section}{\numberline {7.4}Efficiency and Overhead}{19}{section.7.4}
-\contentsline {section}{\numberline {7.5}Program Behaviour}{19}{section.7.5}
-\contentsline {section}{\numberline {7.6}Usefulness of the generated Patches}{19}{section.7.6}
-\contentsline {chapter}{\numberline {8}Discussion}{21}{chapter.8}
-\contentsline {section}{\numberline {8.1}Limitations}{21}{section.8.1}
-\contentsline {section}{\numberline {8.2}Applications}{21}{section.8.2}
-\contentsline {section}{\numberline {8.3}Future Work}{21}{section.8.3}
-\contentsline {chapter}{\numberline {9}Summary and Conclusion}{23}{chapter.9}
-\contentsline {part}{Appendix}{27}{part*.8}
-\contentsline {chapter}{\numberline {A}Detailed Descriptions}{27}{appendix.A}
-\contentsline {chapter}{\nonumberline Bibliography}{29}{appendix*.9}
+\contentsline {section}{\numberline {1.1}Information Exposure Bug}{4}{section.1.1}
+\contentsline {section}{\numberline {1.2}Motivation with Example}{4}{section.1.2}
+\contentsline {section}{\numberline {1.3}Security Hazards}{6}{section.1.3}
+\contentsline {section}{\numberline {1.4}Basic Terminologies}{6}{section.1.4}
+\contentsline {section}{\numberline {1.5}Contribution}{7}{section.1.5}
+\contentsline {chapter}{\numberline {2}Technical and Scientific Fundamentals}{9}{chapter.2}
+\contentsline {section}{\numberline {2.1}Information Exposure Bug with examples}{9}{section.2.1}
+\contentsline {section}{\numberline {2.2}Different Attacks}{9}{section.2.2}
+\contentsline {section}{\numberline {2.3}Analysis Techniques}{9}{section.2.3}
+\contentsline {section}{\numberline {2.4}Program Representation}{9}{section.2.4}
+\contentsline {section}{\numberline {2.5}Code Transformation}{9}{section.2.5}
+\contentsline {section}{\numberline {2.6}Analysis Methods}{9}{section.2.6}
+\contentsline {chapter}{\numberline {3}Related Work}{11}{chapter.3}
+\contentsline {part}{\numberline {II}Design and Development}{13}{part.2}
+\contentsline {chapter}{\numberline {4}Localization Algorithm}{15}{chapter.4}
+\contentsline {chapter}{\numberline {5}Approach}{17}{chapter.5}
+\contentsline {section}{\numberline {5.1}About the Tool}{17}{section.5.1}
+\contentsline {section}{\numberline {5.2}Bug Detection with SMT}{17}{section.5.2}
+\contentsline {section}{\numberline {5.3}Semi Automated Patch insertion Wizard}{17}{section.5.3}
+\contentsline {chapter}{\numberline {6}Implementation}{19}{chapter.6}
+\contentsline {part}{\numberline {III}Evaluation and Discussion}{21}{part.3}
+\contentsline {chapter}{\numberline {7}Evaluation}{23}{chapter.7}
+\contentsline {section}{\numberline {7.1}Test Setup}{23}{section.7.1}
+\contentsline {section}{\numberline {7.2}Methodology}{23}{section.7.2}
+\contentsline {section}{\numberline {7.3}Correctness validation}{23}{section.7.3}
+\contentsline {section}{\numberline {7.4}Efficiency and Overhead}{23}{section.7.4}
+\contentsline {section}{\numberline {7.5}Program Behaviour}{23}{section.7.5}
+\contentsline {section}{\numberline {7.6}Usefulness of the generated Patches}{23}{section.7.6}
+\contentsline {chapter}{\numberline {8}Discussion}{25}{chapter.8}
+\contentsline {section}{\numberline {8.1}Limitations}{25}{section.8.1}
+\contentsline {section}{\numberline {8.2}Applications}{25}{section.8.2}
+\contentsline {section}{\numberline {8.3}Future Work}{25}{section.8.3}
+\contentsline {chapter}{\numberline {9}Summary and Conclusion}{27}{chapter.9}
+\contentsline {part}{Appendix}{31}{part*.8}
+\contentsline {chapter}{\numberline {A}Detailed Descriptions}{31}{appendix.A}
+\contentsline {chapter}{\nonumberline Bibliography}{33}{appendix*.9}

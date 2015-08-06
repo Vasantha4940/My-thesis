@@ -1,13 +1,16 @@
 \begin{thebibliography}{1}
 
+\bibitem{forbes:bill}
+{\em
+  http://www.forbes.com/sites/moneybuilder/2015/01/13/the-big-data-breaches-of-2014/}.
+
 \bibitem{mitre:CWE}
 {CWE}.
 \newblock {\em https://cwe.mitre.org/}.
 
-\bibitem{forbes:bill}
-H.~Bill.
-\newblock {\em
-  http://www.forbes.com/sites/moneybuilder/2015/01/13/the-big-data-breaches-of-2014/},
+\bibitem{cve:details}
+{\em
+  http://www.cvedetails.com/cwe-definitions/1/orderbyvulnerabilities.html?order=2\&trc=668\&sha=0427874cc45423ccb6974ee25935fbfceac76fcb},
   jan 2015.
 
 \end{thebibliography}

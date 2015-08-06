@@ -7,8 +7,13 @@
 and sealed in a lead-lined room with armed guards."
 \textemdash  \textbf{ Gene Spafford}} \\
 
-According to Forbes 2015~\cite{forbes:bill}, one among the topmost data breaches occurred in the 
-previous years is Neiman Marcus hack.
+According to the ultimate security vulnerabiltiy datasource CVE details~\cite{cve:details},
+there are 2082 vulnerabilities related to information exposure. Information exposure bugs could be introduced
+in different stages of software development. During design, architecture or coding phase and
+can lead to exposure of critical information or can also lead to strange program behavior.
+Recently, Forbes 2015~\cite{forbes:bill} published in one of the articles that
+among the topmost data breaches occurred in the 
+previous years Neiman Marcus hack is famous.
 In January 2013, many debit and credit card information of almost 350,000 customers have been
 hacked. It is believed that the breach happened because of a malicious software
 that was installed onto the Neiman Marcus system. This software collected all the payment
@@ -27,53 +32,91 @@ The goal of this thesis is to develop an algorithm for fault localization(locali
 information exposure buggy programs. Repairing is done using the precise information like failure detection,
 bug diagnosis, buggy variables which are nothing but the program variables that directly influence
 the appearance of a bug in the program.
-For example the buggy variable "line" reported by our information exposure checker [ref]. In order to 
-repair the buggy program we make use of failure detection and bug diagnosis data to generate the quick fixes
+For example the buggy variable "line" reported by the information exposure checker [ref]. In order to 
+repair the buggy program, failure detection and bug diagnosis data has been used to generate the quick fixes
 for information exposure bugs with the help of a refactoring wizard. We have developed a localization algorithm 
-in order to localize the bug. We need a localizer since the cause for the bug will not be the place 
-
-
-
-The failure detection and bug diagnosis data is used to generate quick fixes for
-buffer overflows and to support the repair process of removing the bug with a
-refactoring wizard. A novel algorithm is used to detect possible insertion loca-
-tions in code for the generated code patches ((a) ”in-place”—directly before the
-statement which contains the bug and (b) by searching for other, not ”in-place”
-locations where the bug can be fixed). Our approach for generating program
-repairs is based on: code patch patterns, SMT solving and possible quick fix
-locations searching in program execution paths which could affect the program
-behavior by inserting a patch at a not ”in-place” location. The generated patches
-are sound (e.g., do not change the behavior of the program for input which does
-not trigger the bug), final (no further human refinement needed), human read-
-able (no alien code), syntactically correct and compilable.
-We address offline behavioral repair [24] (by modifying the source code).
-Others have addressed state [8] or test-suite based program repair such as Gen-
-Prog [18] and PAR [17]. The defect class which we address is inappropriate index
-variable assignment which results in an incorrect usage of the buffer index range.
-The fix defect class consists of input checks based on semi-defined patch pat-
-terns. The aim of the quick-fix is fail-secure error mitigation (e.g., to prevent
-that an attacker exploits the error in order to gain system access). The final
-version of the patch is determined using SMT solving.
-Program repair lies at the conjunction of two dimensions (first, an oracle is
-needed to decide what is incorrect in order to detect the bug (first dimension)
-and another oracle to tell what should be kept correct for sake of non-regression
-(second dimension)) of software correctness [24]. We used the same SMT con-
-straint system which was used to trigger the bug for defining what is incorrect
-in the program. Additionally, we created a second SMTLib (constraint system
-definition language used by the Z3 [7] solver) constraint system consisting of the
-previously mentioned constraint system and new SMTLib constraints used to
-impose input saturation constraints on the buggy variable.
-Our patches are generated automatically and inserted semi-automatically offline
+in order to localize the bug. We need a localizer since the cause for the bug will not be the place where
+the bug was detected but earlier in the program code where the information flows into the buggy variable.
+Therefore a novel algorithm is developed in order to detect possible insertion locations for the generated code patches.
+Here the code patches can be inserted at two different locations: (i) place where the bug was found \textthreequartersemdash "in-place-fix", (ii) place where the
+information flows in the buggy variable \textthreequartersemdash  "not-in-place-fix". Approach for generating
+the program repair depends on the code patch patterns, SMT solving and searching possible quick fix locations searching in the 
+program execution paths that will not affect the program behavior by inserting the patch at "not-in-place" location.
+Generated patches do not change the program behavior for the input that doesnot trigger the bug, therefore the generated code patch
+is sound. It doesnot need further human refinement(final) , no alien code(human readable), syntactically correct and compilable.
+The defect class that have been addressed here is information exposure through log files , error reports and environmental variables exposure through
+which sensitive information like the password or the path to remote server could be exposed and the hacker could exploit the system.
+The fix defect class consists of the removal of the confidential data at the point where the information flows from the
+trust boundary based on semi-defined patch patterns.The aim of the quick-fix code patch is 
+information exposure error mitigation (e.g., to prevent
+that an attacker exploits the error in order to gain system access or display of sensitive information).
+Program repair depends on two dimensions: (i) an oracle which decides upon what is incorrect in order to detect the bug, (ii)
+another oracle to decide what should be kept correct in order to attain software correctness [ref]. 
+Patches are generated automatically and inserted semi-automatically offline
 with the possibility to insert them also online.
+90 C programs of Juliet test suite CWE-526, CWE-534, CWE-535~\cite{mitre:CWE} have been used to evaluate the developed approach. 
+CWE-526 contains
+information exposure through environmental variables related bugs and the potential mitigation would be to protect the 
+information stored in the environmental from being exposed to the user. CWE-534 contains information 
+exposure through debug log files related bugs and the potential mitigation would be to remove the 
+debug files before deploying the application into produciton. CWE-535 contains information exposure through
+shell error message related bugs . In all the three CWE's the common consequence of the bug is
+loss of confidentiality.
 
 
 
 
 \section{Information Exposure Bug}
-about info expo bug.
- 
+
+Information Exposure Bug is an error in the software code which intentionally or unintentionally discloses sensitive information to an user who is 
+not explicitly authorized to have access rights to that information.
+This information could be sensitive within the developed product's own functionality like a private message, which provides information
+about the product itself or which exposes the environment that is not available for the attacker and that could be very useful for the attacker like the 
+installation path of that product which can be accessed remotely.
+Many of the information exposures is due to many of the program errors like the PHP script error that may reveal the path of the program or
+could be some timing discrepancies in encrypting the data. There are in general many kinds of problems that involve information exposures and the severity
+of those problems can range vastly based on the type of the sensitive information that has been revealed by the errors.
+Information exposures are also named as information leak or information disclosure.
+
  \section{Motivation with Example}
-Write about motivating example.
+
+ 
+ In general detecting a information exposure bug depends on accurately finding the source code location
+ 
+ The detection of information exposure bugs is based on finding
+the locations in source code where sensitive information is about
+to leave a trust-boundary. An attacker could exploit this IE
+vulnerability if this information is leaked to the outside of the
+system. This may contain sensitive information about a remote
+server or other secret resources. We want to build a tool capable
+to detect IE vulnerabilities.
+0. void CWE526_bad(){
+1. if (staticFive == 5){
+2. /*FLAW:environment variable exposed*/
+3. printLine(getenv("PATH"));
+4. }
+5. }
+Figure 1a. CWE-526 test programs source, after [7].
+0. void printLine (const char *line){
+1. if(line != NULL){
+2. printf("%s\n", line);
+3. }
+4. }
+Figure 1b. CWE-526 test programs sink, after [7].
+Fig. 1a and Fig. 1b present a information exposure scenario
+between the source, Fig. 1a, line 3 and the sink Fig 1b, line 2.
+These code snippets are contained in the CWE-526 test case
+available in [7]. On line 3 in Fig. 1a the system PATH variable is
+sent to the printf() sink located on line 2 in Fig. 1b. The
+printLine()function presented in Fig. 1a is a wrapper for the
+C printf() function and it is contained in another C file. The
+trust-boundary is represented in this case by the printf()sink
+function. For the getenv() we define a function model where
+we set the return value of it to be confidential. The return value of
+the getenv() will be propagated using static execution and
+explicit IF. When a confidential symbolic variable is about to
+leave the sink printf() the interpreter will be notified. This
+represents the bug triggering condition used by our IE checker.
 
 \section{Security Hazards}
 securitx hazards of info expo bugs

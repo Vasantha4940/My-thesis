@@ -11,7 +11,11 @@
 	author = "Bill, H.",
 	journal = "http://www.forbes.com/sites/moneybuilder/2015/01/13/the-big-data-breaches-of-2014/",
 	month = "jan",
-	title = "{Article from forbes}",
 	year = "2015"
+}
+
+@article{mitre:CWE,
+	journal = "https://cwe.mitre.org/",
+	title = "{CWE}"
 }
 
