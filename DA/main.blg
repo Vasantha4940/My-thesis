@@ -4,54 +4,68 @@ The top-level auxiliary file: main.aux
 The style file: plain.bst
 Database file #1: bibliography/literature.bib
 Warning--to sort, need author or key in cve:details
+Warning--to sort, need author or key in top:vul
+Warning--to sort, need author or key in top:25
 Warning--to sort, need author or key in forbes:bill
 Warning--to sort, need author or key in mitre:CWE
+Warning--to sort, need author or key in wiki:analysis
 Warning--empty author in forbes:bill
 Warning--empty title in forbes:bill
 Warning--empty year in forbes:bill
 Warning--empty author in mitre:CWE
 Warning--empty year in mitre:CWE
+Warning--empty author in top:25
+Warning--empty year in top:25
+Warning--empty author in top:vul
+Warning--empty year in top:vul
+Warning--empty author in wiki:analysis
+Warning--empty year in wiki:analysis
 Warning--empty author in cve:details
 Warning--empty title in cve:details
-You've used 3 entries,
+Warning--empty year in Baracaldo:attack
+Warning--empty year in open:OSSTMM
+Warning--empty title in book:analysis
+Warning--empty year in book:analysis
+Warning--empty school in Ward:code
+You've used 28 entries,
             2118 wiz_defined-function locations,
-            506 strings with 4291 characters,
-and the built_in function-call counts, 506 in all, are:
-= -- 42
-> -- 3
-< -- 0
-+ -- 3
-- -- 0
-* -- 47
-:= -- 67
-add.period$ -- 4
-call.type$ -- 3
-change.case$ -- 7
+            686 strings with 9291 characters,
+and the built_in function-call counts, 9618 in all, are:
+= -- 989
+> -- 387
+< -- 10
++ -- 156
+- -- 128
+* -- 702
+:= -- 1501
+add.period$ -- 86
+call.type$ -- 28
+change.case$ -- 144
 chr.to.int$ -- 0
-cite$ -- 13
-duplicate$ -- 30
-empty$ -- 55
-format.name$ -- 0
-if$ -- 103
+cite$ -- 52
+duplicate$ -- 408
+empty$ -- 761
+format.name$ -- 128
+if$ -- 2066
 int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 3
-newline$ -- 13
-num.names$ -- 0
-pop$ -- 20
+int.to.str$ -- 28
+missing$ -- 27
+newline$ -- 135
+num.names$ -- 44
+pop$ -- 161
 preamble$ -- 1
-purify$ -- 6
+purify$ -- 120
 quote$ -- 0
-skip$ -- 19
+skip$ -- 297
 stack$ -- 0
-substring$ -- 15
-swap$ -- 3
-text.length$ -- 0
+substring$ -- 581
+swap$ -- 107
+text.length$ -- 10
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 12
-warning$ -- 10
-while$ -- 0
-width$ -- 4
-write$ -- 20
-(There were 10 warnings)
+type$ -- 112
+warning$ -- 24
+while$ -- 88
+width$ -- 30
+write$ -- 307
+(There were 24 warnings)

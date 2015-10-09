@@ -1,17 +1,543 @@
+\let\cleardoublepage\clearpage
+\chapter{System Overview}
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=1.0\textwidth]{png/system.png}
+\caption{System Workflow}
+\label{fig:system}
+\end{figure}
+Exisiting information-flow checker is based on the static analysis engine
+which can be scaled to many other types of checkers and also for large 
+test cases. The system workflow is depicted in figure~\ref{fig:system}.
+First, all the C/C++ test programs have to be selected which are to be imported
+in the workspace. Second, all the confidential variables in the test
+programs have to tainted and the trust boundaries need to be defined.
+Third, after running the eclipse java application, a new eclipse CDT instance
+is launched in which we can find already imported test programs. Then a test
+program is selected and a sub menu "Run C/C++ Code Analysis" option
+has to selected after right clicking on it. Fourth, a refactoring wizard
+appears after clicking on the bug marker that is placed after running the
+information exposure checker. Basically the IE checker is run as a Eclipse
+plug-in project. Once this project is started a new eclipse CDT instance is 
+launched as shown in the figure~\ref{fig:tool1} containing 90 Test Programs(TP)
+namely CWE-526,534,535. A Graphical User Interface(GUI) is provided by the codan API.
+After running the checker the results can be seen in the view represented
+by figure~\ref{fig:tool2}. We can also use one of the Codan API feature in order
+to configure the bug report's representation to be Warnings, errors or infos.
+The end result of the IF checker is the bug report containing the description
+of the bug, file and the path which can lead to the location of the bug on clicking
+on the warning as represented in figure~\ref{fig:tool2} marked with number 3.
+After reaching the bug location in the file, upon clickin on the bug marker icon
+a refactoring wizard is launched containing the quick fix options as shown in 
+figure~\ref{fig:tool4}. After selection any one option, a window with the selected
+code patch is displaye and upon clicking next a differential view with
+both the buggy program and refactored code is displayed as shown in 
+figure~\ref{fig:tool6}. After clicking on finish the code is refactored.
+
+
+
+\label{chapter:Algorithm}
+
 \chapter{Localization Algorithm}
 \label{chapter:Algorithm}
+{\LinesNumberedHidden
+\begin{algorithm}
+\caption{Decision on starting the localization algorithm for searching quick fix locations and for generating the code patches}
+\label{alg:one}
+\SetAlgoLined
+\KwIn{$location_{node}$, $filename_{node}$,$sourcefile_{node}$}
+
+\KwOut{Refactorings set $R_{set}:=$ \{$r_j\arrowvert$ 0 $\leq$ j $\textless$ 2 \}} 
+
+$N_{set}:=$ \{$n_t\arrowvert$ 0 $\leq$ t $\leq$ n,$\forall$ n $\geq$ 0 \};\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//set of nodes}}}\\
+$R_{set}:$=$\emptyset$;$N_{set}:$=$\emptyset$\;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//initialising nodes set and refactoring set to empty}}}\\
+$j=0$;
+
+\underline{function CheckerReport} $(location_{node}, filename_{node}, sourcefile_{node})$
+
+\eIf {$filename_{node}\neq sourcefile_{node}$}
+{
+$localizer.start()$;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//Starting the localizer}}}\\
+}
+{
+$N_{set}:=N_{set}\bigcup{node}$;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//adding node to node set}}}\\
+$r_{j}:= refact(node)$;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//Refactoring the node}}}\\
+$R_{set}:=R_{set}\bigcup{r_{j}}$;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//adding refactored node}}}\\
+$j=:j+1$\;
+}
+\end{algorithm}
+}
+
+{\LinesNumberedHidden
+\begin{algorithm}[ht]
+nonumbering
+\caption{Part-I: Localizer algorithm and generating code patches}
+\label{alg:two}
+\SetAlgoLined
+\KwIn{Set of satisfiable paths $Sat_{paths}:=$\{$spath_i\arrowvert$ 0 $\leq$ i $\leq$ n,$\forall$ n $\geq$ 0 \};}
+
+\KwOut{Refactorings set $R_{set}:=$ \{$r_j\arrowvert$ 0 $\leq$ j $\textless$ 2 \}} 
+$N_{set}:=$ \{$n_t\arrowvert$ 0 $\leq$ t $\leq$ n,$\forall$ n $\geq$ 0 \};\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//Set of Nodes}}}\\
+$pathloc_{list}:=$ \{$path_k\arrowvert$ 0 $\leq$ k $\leq$ n,$\forall$ n $\geq$ 0 \};\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//Set of paths list with filename and line number of every node in the path}}}\\
+$path_{location}:$=$\emptyset$ \textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//list of nodes in the path with filename and linenumber}}}\\
+$R_{set}:$=$\emptyset$;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{// initialising refactorings set}}}\\
+$N_{set}:$=$\emptyset$;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{// initialising nodes set}}}\\
+
+\underline{function Localizer} $()$
+
+\While{(($Sat_{paths}$.hasNext))}{
+\For{\textbf{each} $node_{j}$ \textbf{in} $spath_{i}$}{
+ \eIf{$node_{j}.hasTranslationalUnit()$}{
+ $filename:=node_{j}.getfilename()$\;
+ $linenumber:=node_{j}.getStartingLinenumber()$\;
+}{
+ $filename:=null$\;
+ $linenumber:=-1$\;
+ }
+ $path_{location}:=path_{location}\bigcup getloc(filename,linenumber)$;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//Add location of each node in the path}}}\\
+  }
+  $pathloc_{list}:=pathloc_{list}\bigcup path_{location} $;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//Updating the paths list}}}\\
+  \For{\textbf{each} $buginfo$ \textbf{in} $spath_{i}$}{\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//verifying if the path has the bug info}}}\\
+  $bugloc_{new}:=bugloc(path_{location})$\;
+  $loc_{bugloc}:=loc_{bugloc}\bigcup bugloc_{new} $;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//Updating the localizer bug locations}}}\\
+  }
+    $path_{location}:$=$\emptyset$;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//emptyping the pathlocation}}}\\
+}
+\For{\textbf{each} $bugloc$ \textbf{in} $loc_{bugloc}$}{
+\For{$i \gets 1$ \textbf{to} $bugloc.pathdepth$ }{\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//we count the number of times the node appears in the buggy paths}}}\\
+\eIf{$node_{i}$ \textbf{in} $path_location$ of $loc_{bugloc}$ }{
+$count:=count+1$;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//Updating the count of the node}}}\\
+}
+{
+$count:=0$;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//Updating count to 0 if it appears for the first time}}}\\
+}
+
+}
+$bugmap:=bugmap.buginfo.put(node_{i},count)$;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//maintaing a map between the node and its count}}}\\
+}
+\begin{algorithmic}                   % enter the algorithmic environment
+\STATE
+\algstore{myalg}
+\end{algorithmic}
+\end{algorithm}
+}
+
+{\LinesNumberedHidden
+\begin{algorithm}[ht]
+\caption{Part-II contd...}
+\begin{algorithmic}                   % enter the algorithmic environment
+\algrestore{myalg}
+\STATE
+\end{algorithmic}
+\For{\textbf{each} $buginfo$ \textbf{in} $bugmap$}{
+\For{\textbf{each} $path_{k}$ \textbf{in} $pathloc_{list}$}{
+\For{\textbf{each} $path_{l}$ \textbf{in} $loc_{bugloc}$}{
+\eIf{$path_{k} \neq path_{l}$}{
+\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{// remove all definitely good nodes (from paths without the bug) and
+			nodes without a useful location }}}\\
+$bugmap.remove(path_{k})$\;
+}
+{
+continue;
+}
+}
+}
+}
+\For{\textbf{each} $node$ \textbf{in} $bugmap$}{
+\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{// Get the node with the maximum count}}}\\
+\If{$node.getcount()> max$}{$max:=node.getcount()$}
+\If{$node.getcount()= max$}{
+$suspicious_{node}:=suspicious_{node} \bigcup node$;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{// 
+node with max count is the suspicious node}}}\\
+$node_{map}:= node_{map} \bigcup getpath(node)$;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{// 
+save the node and its corresponding path in a hashmap}}}\\
+}
+\eIf{$node_{map}.size \le 1$}{
+$N_{set}:=N_{set}\bigcup{node}$;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//adding node to node set}}}\\
+$r_{j}:= refact(node)$;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//Refactoring the node}}}\\
+$R_{set}:=R_{set}\bigcup{r_{j}}$;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//adding refactored node}}}\\
+$j=:j+1$\;
+}{\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//if nodes belong to same path then find first node 
+in the path}}}\\
+\eIf{$node in node_{map} belong to same path$}{
+$N_{set}:=N_{set}\bigcup{firstnode}$;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//adding node to node set}}}\\
+$r_{j}:= refact(node)$;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//Refactoring the node}}}\\
+$R_{set}:=R_{set}\bigcup{r_{j}}$;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//adding refactored node}}}\\
+$j=:j+1$\;
+}{\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//if nodes belong to different paths create refactoring for each node
+in different paths}}}\\
+$N_{set}:=N_{set}\bigcup{node}$;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//adding node to node set}}}\\
+$r_{j}:= refact(node)$;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//Refactoring the node}}}\\
+$R_{set}:=R_{set}\bigcup{r_{j}}$;\textcolor{dkgreen}{\textbf{\fontfamily{cmtt}\selectfont{//adding refactored node}}}\\
+$j=:j+1$\;
+}
+}
+}
+\end{algorithm}
+}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.9\textwidth]{png/localizer.png}
+\caption{Activity diagram of the localizer}
+\label{fig:localizer}
+\end{figure}
+
 
 \chapter{Approach}
 \label{chapter:Approach}
 
-\section{About the Tool}
-Contribution
 
-\section{Bug Detection with SMT}
-Contribution
+\section{About the Tool}
+Developed tool bridges the gap between the bug report 
+that is been reported by the already exisitng information
+exposure bug checker and the automatically generated one
+or more bug fixes which helps in the removal of the information
+exposure bugs. Removal of the bug is tested again by re-running
+the information exposure checker on the patched program.
+Bug fixes includes 
+structure of the fix, location where the fix has 
+to be inserted
+and the values used in the fix patches. The bug localization
+for some files is done
+by the information exposure checker which is 
+integrated in our static analysis engine and
+by the localizer for other files which contain 
+the wrapper functions. The checker basically returns the file name,
+line number and also a bug ID which is unique for every kind of bug.
+Therefore along with the report, the checker also puts a marker at the bug location.
+After clicking the icon the refactoring wizard starts.
+
+
+\section{Bug Detection with tainting and triggering}
+
+Function models were used in order to describe the behaviour of of the C/C++ libraray function calls.
+Static analysis engine's implementation is dependant on these function models.
+Every function model class will contains five methods and also it implements the IFctModel.
+The methods are: the constructor, getName() used for returning the function name,
+getLibrarySignature() for returning the whole header of that function 
+same as it is in the C standard library defined, exec(SymFunctionCall call)
+used for executing the function calls satically
+in which the variables can be tainted and also the trust
+boundaries are defined which could help
+in notifying the checker, getSignature() used for returning a SymFctSignature object
+which contains the data types of the parameters of that particular function call
+and also the return type of the function itself.
+Major difference between exec() method of the 
+function models printf() and getenv is that the IF
+checker is notified that a trust-boundary is about to be passed
+in printf() function model and in getenv() the return type of the exec()
+method is set to be confidential. In the same way the source and sink 
+which are contained in CWE-534/535 are implemented.
+
+
+\begin{lstlisting}[caption={Function model of getenv()},label={lst:getenv()}]
+
+
+	public Mgetenv(Interpreter ps) {
+		this.ps = ps;
+		HashMap<String, Comment> commentMap = AnnotationExecution
+				.getCommentsMap();
+		if (commentMap == null) {
+			MyLogger.log_parser("Comment Map is Empty");
+		} else {
+			comment = commentMap.get(getLibrarySignature());
+			if (comment == null) {
+				MyLogger.log_parser("Mgetenv comment is null");
+			} else {
+
+				if (comment.getType().equals(Comment.singleLineComment)) {
+					annotationType = Comment.singleLineComment;
+					listSingleParamterAnnotation = AnnotationParserUtil
+							.getSingleLineParamterAnnotation(comment);
+					listSingleFunctionAnnotation = AnnotationParserUtil
+							.getSingleLineFunctionAnnotation(comment);
+					if (listSingleParamterAnnotation == null) {
+					} else {
+					}
+				} else if (comment.getType()
+						.equals(Comment.mutilineLineComment)) {
+					annotationType = Comment.mutilineLineComment;
+					listMultiParamterAnnotation = AnnotationParserUtil
+							.getMultilineParameterComment(comment);
+					listMultiFunctionAnnotation = AnnotationParserUtil
+							.getMultilineFunctionComment(comment);
+				}
+			}
+		}
+	}
+
+	public String getName() {
+		return "getenv";
+	}
+
+	private static String getLibrarySignature() {
+		return "extern char *getenv (__const char *__name) __THROW __nonnull ((1)) __wur;";
+	}
+
+	public SymFunctionReturn exec(SymFunctionCall call) {
+		ArrayList<IName> plist = call.getParams();
+		SymPointerOrig isp = ps.getLocalOrigSymPointer(plist.get(0));
+		IName nebn = new EnvVarName();
+		SymIntOrig sb_size = new SymIntOrig(new ImpVarName());
+		SymArrayOrig sb = new SymArrayOrig(nebn, sb_size);
+		try {
+			sb.setElemType(eSymType.SymPointer);
+			SymVarSSA ssa = (SymVarSSA) ps.declareLocal(eSymType.SymPointer,
+					null);
+			isp_ssa = (SymPointerSSA) ps.ssaCopy(isp);
+			isp_ssa.setTargetType(eSymType.SymPointer);
+
+			if (comment != null && annotationType != null
+					&& annotationType.equals(Comment.mutilineLineComment)
+					&& listMultiFunctionAnnotation != null
+					&& listMultiParamterAnnotation != null) {
+				String function_property = AnnotationUtil.FUNCTION_PROPERTY_SOURCE;
+				if (listMultiFunctionAnnotation.get(0).getAtribute()
+						.equals(function_property.toString())) {
+					
+					if (listMultiParamterAnnotation.get(0).getIndex() == 0) {
+						String security_level = AnnotationUtil.PARAMTER_SECURITY_LEVEL_CONFIDENTIAL;
+						if (listMultiParamterAnnotation.get(0)
+								.getSecurityType()
+								.equals(security_level.toString())) {
+							isp_ssa.setConfidential(true);
+						} else {
+							isp_ssa.setConfidential(false);
+						}
+					}
+				} else {
+				}
+			}
+			isp_ssa.setTarget(sb);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return new SymFunctionReturn(isp_ssa);
+	}
+
+	public SymFctSignature getSignature() {
+		SymFctSignature fsign = new SymFctSignature();
+		fsign.addParam(new SymPointerOrig(eSymType.SymArray, new Integer(1)));
+
+		fsign.setRType(new SymPointerOrig(eSymType.SymPointer, new Integer(1)));
+		return fsign;
+	}
+
+}
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Function model of printf()},label={lst:printf()}]
+
+	public Mprintf(Interpreter ps) {
+		this.ps = ps;
+
+		commentMap = AnnotationExecution.getCommentsMap();
+		if (commentMap == null) {
+			MyLogger.log_parser("Comment Map is Empty");
+		} else {
+			comment = commentMap.get(getLibrarySignature());
+			if (comment == null) {
+				MyLogger.log_parser("Mgetenv comment is null");
+			} else {
+
+				if (comment.getType().equals(Comment.singleLineComment)) {
+					annotationType = Comment.singleLineComment;
+					listSingleParamterAnnotation = AnnotationParserUtil
+							.getSingleLineParamterAnnotation(comment);
+					listSingleFunctionAnnotation = AnnotationParserUtil
+							.getSingleLineFunctionAnnotation(comment);
+					if (listSingleParamterAnnotation == null) {
+					} else {
+					}
+				} else if (comment.getType()
+						.equals(Comment.mutilineLineComment)) {
+					annotationType = Comment.mutilineLineComment;
+					listMultiParamterAnnotation = AnnotationParserUtil
+							.getMultilineParameterComment(comment);
+					listMultiFunctionAnnotation = AnnotationParserUtil
+							.getMultilineFunctionComment(comment);
+				}
+			}
+		}
+	}
+
+	public String getName() {
+		return "printf";
+	}
+
+	public static String getLibrarySignature() {
+		// contained in stdio.h
+		return "extern int printf (__const char *__restrict __format, ...);";
+	}
+
+	public SymFunctionReturn exec(SymFunctionCall call) {
+		ArrayList<IName> plist = call.getParams();
+		SymArraySSA newdestarr = null;
+		SymArraySSA sourcearr = null;
+		try {
+			int t = 0;
+			t = plist.size() - 1;
+			
+			SymVarSSA sourceSSA = (SymVarSSA) ps
+					.resolveOrigSymVar(plist.get(t)).getCurrentSSACopy();
+
+			if (sourceSSA != null && comment != null && annotationType != null) {
+				
+				if (annotationType.equals(Comment.mutilineLineComment)
+						&& listMultiFunctionAnnotation != null
+						&& listMultiParamterAnnotation != null) {
+					String function_property = AnnotationUtil.FUNCTION_PROPERTY_SINK;
+					for (FunctionComment element : listMultiFunctionAnnotation)
+						if (element.getAtribute().equals(
+								function_property.toString())) {
+							ps.notifyTrustBoundary(sourceSSA);
+						} else {
+						}
+				} else {
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		IName retname = new ImpVarName();
+		SymPointerOrig retvalorig = new SymPointerOrig(retname);
+		retvalorig.setTargetType(eSymType.SymPointer);
+		SymVarSSA ssa = (SymVarSSA) ps.declareLocal(eSymType.SymInt, null);
+		return new SymFunctionReturn(ssa);
+	}
+	public SymFctSignature getSignature() {
+		SymFctSignature fsign = new SymFctSignature();
+		fsign.addParam(new SymPointerOrig(eSymType.SymArray, new Integer(1)));
+		fsign.addParam(new SymPointerOrig(eSymType.SymArray, new Integer(1)));
+
+		fsign.setRType(new SymPointerOrig(eSymType.SymPointer, new Integer(1)));
+		return fsign;
+	}
+
+}
+\end{lstlisting}
+
+
+Function model that currently exists in SAE are some of the C functions:
+atoi(), fclose(), fgets(), fwgets(),
+fgetws(), fopen(), gets(), memcpy(), mod(),
+puts(), rand(), srand, strcpy(), strlen(),
+time(), wcscpy(), wcslen().
+Funtion models which were used in this thesis are getenv()
+as the source and printf() as sink from the test programs CWE-526.
+LogonUserA(), LogonUserW() as source and fprintf(), fwprintf() as sink
+from the test programs CWE-534 and CWE-535.
+These function models were used for both tainting and also triggering.
+
+
 
 \section{Semi Automated Patch insertion Wizard}
-about info expo bug.
+The information exposure checker after detecting a bug, it puts
+a bug marker which is a yellow color bug icon
+as shown in the figure~\ref{fig:tool3}. It is placed to the left side
+of the C/C++ statement at the place where it contains a information
+exposure bug. Therefore, after clicking on the bug marker, one
+can start the wizard for the code refactoring. This wizard
+contains three user pages. In the first page, the user can make
+a selection of either "in-place" (latest) or
+"not-in-place" (earliest) fixes as shown in figure~\ref{fig:tool4}.  
+In the second page one can have a look at the code patch that
+is going to be inserted in the code for refactoring as shown in figure~\ref{fig:tool5}. In the third
+page one can have a differential view depicting the 
+difference between the refactored code and the original 
+source code files as shown in figure~\ref{fig:tool6}. One can navigate through all the three pages 
+using the buttons "Back", "Next", "Cancel" in order to see the 
+changes inserting "in-place" and "not-in-place" fixes.
+Finally, once the decision has been made on the selection
+user has to click on "finish" button in order to make sure that
+the selected patch is written to the file and then the wizard 
+exits.
+
+\section{Tool Demo}
+The refactoring process is carried out stepwise. Following windows shows all the steps involved:\\
+1. After running the Eclipse Java application, a CDT instance is displayed. From this
+instance one can select a testcase that are imported from the Juilet testsuite as shown in figure
+~\ref{fig:tool1}.
+After the selection of testcase, right click on the testcase. Once clicked,
+a window with many option appear. Among the options click on "Run C/C++" Code Analysis.
+Once the analysis is run then the Information Exposure checker is started and checks for
+the bugs.\\
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.9\textwidth]{png/Tool1.png}
+\caption{C/C++ testcase selection and running analysis}
+\label{fig:tool1}
+\end{figure}\\
+2. After the checker checks for the information exposure bugs. The next window consists of three views: A view
+with yellow color
+marker placed at the location where the bug was detected as shown in the figure~\ref{fig:tool2} annotated 
+with \textbf{2}. A view displaying all the bugs that are found, annotated with \textbf{3} and by clicking on 
+any of the bug details in the window, it takes us to the location where the bug is located. A view with the the list
+of all the testcases annotated with \textbf{1}\\
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=1.0\textwidth]{png/Tool2.png}
+\caption{Marker at the bug location}
+\label{fig:tool2}
+\end{figure}\\
+3. When a user places the mouse cursor on the yellow icon which is the bug marker. A small window with a message 
+the problem message and description is displayed as shown in the figure~\ref{fig:tool3} e.g "Quick fix is available"
+and "Problem description: localizer not-in-place Quick fix available"\\
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=1.0\textwidth]{png/Tool3.png}
+\caption{Click on the marker icon}
+\label{fig:tool3}
+\end{figure}\\
+4. After clicking on this bug marker icon a window showing the following option is displayed with
+earliest quick fix(not-in-place) and latest quick fix(in-place). After selecting any one of the option
+and clicking on "Next" button will take the user to the next window. By clicking on the "Cancel" button
+will stop the refactoring process as shown in figure~\ref{fig:tool4}.\\
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.7\textwidth]{png/Tool4.png}
+\caption{Refactoring Wizard with two options}
+\label{fig:tool4}
+\end{figure}\\
+5. User can then see a window which displays the code patch based on the selection in the previous
+window . Here "printLine("Confidential data has been restricted")" is the code patch. User can go 
+to the previous window by clicking on "Back" button, "Finish" to proceed to the next window, `
+"Cancel" to cancel the refactoring process as shown in figure~\ref{fig:tool5}.\\
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.7\textwidth]{png/Tool5.png}
+\caption{Patch according to the previous selection}
+\label{fig:tool5}
+\end{figure}\\
+6. Once the user clicks on "Next" from the previous window figure~\ref{fig:tool5}, then a 
+window with differential view is displayed which shows the difference between the original code
+and the refactored code by highlighting the place where the code was refactored as shown in figure~\ref{fig:tool6}.\\
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=1.0\textwidth]{png/Tool6.png}
+\caption{Differential view of the patched and unpatched programs}
+\label{fig:tool6}
+\end{figure}\\
  
 \chapter{Implementation}
 \label{chapter:impl}
+
+
+Developed information exposure bugs fixing tool was integrates into already existing Static Analysis Engine(SAE) which
+is a plugin of Eclipse IDE. A Refactoring wizard was developed in order to semi-automatically insert the generated code patch
+into the buggy program in order to fix the errors. This was developed using the Eclipse Language Tool Kit (LTK), JFace and 
+CDT. Refactoring of code is done in two steps: First, performed bug detection analysis where if the bug was found
+a marker icon is placed at the bug location. This is the "in-place" location. If the marker is put in a file other than
+the original source code file then we start the localization algorithm. This is because, other files may contain
+wrapper functions where the bug was detected but we cannot fix the bug at that location since this
+wrapper function may be used by other functions where there is no confidential data being sent. Therefore,
+we have fix the bug at 
+a place in the source code file from where the confidential data leaves. This is the "not-in-place" location.
+So after running the localizer algorithm we get some suspicious nodes. From these suspicious node again we propagate
+through the node in order to verify if some confidential 
+information flows through it by checking it is tagged with "confidential". Once we find the exact node from where
+ the information started flowing, again a marker is placed at that location. Once the bug fix locations are found, then 
+ we start the refactoring wizard in order to insert the code patches into the buggy code.
+
+

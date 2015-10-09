@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{forbes:bill}
 {\em
@@ -8,9 +8,161 @@
 {CWE}.
 \newblock {\em https://cwe.mitre.org/}.
 
+\bibitem{top:25}
+{Top 25 vulnerabilities}.
+\newblock {\em http://www.veracode.com/directory/cwe-sans-top-25}.
+
+\bibitem{top:vul}
+{Top ten vulnerablities}.
+\newblock {\em http://www.veracode.com/directory/owasp-top-10}.
+
+\bibitem{wiki:analysis}
+{Wikipedia}.
+\newblock {\em https://en.wikipedia.org/wiki/Program\_analysis}.
+
 \bibitem{cve:details}
 {\em
   http://www.cvedetails.com/cwe-definitions/1/orderbyvulnerabilities.html?order=2\&trc=668\&sha=0427874cc45423ccb6974ee25935fbfceac76fcb},
   jan 2015.
+
+\bibitem{Backes:attack1}
+M.~Backes, M.~D{\"u}rmuth, S.~Gerling, M.~Pinkal, and C.~Sporleder.
+\newblock {Acoustic Side-channel Attacks on Printers}.
+\newblock In {\em {Proceedings of the 19th USENIX Conference on Security}},
+  {USENIX Security'10}, pages 20--20, Berkeley, CA, USA, 2010. USENIX
+  Association.
+
+\bibitem{Ball:tool}
+T.~Ball and Sriram~K. Rajamani.
+\newblock {Automatically Validating Temporal Safety Properties of Interfaces}.
+\newblock In {\em {Proceedings of the 8th International SPIN Workshop on Model
+  Checking of Software}}, {SPIN '01}, pages 103--122, New York, NY, USA, 2001.
+  Springer-Verlag New York, Inc.
+
+\bibitem{Baracaldo:attack}
+N.~Baracaldo and J.~Joshi.
+\newblock {Beyond Accountability: Using Obligations to Reduce Risk Exposure and
+  Deter Insider Attacks}.
+\newblock In {\em {Proceedings of the 18th ACM Symposium on Access Control
+  Models and Technologies}}, {SACMAT '13}.
+
+\bibitem{Cadar:SMT}
+C.~Cadar and K.~Sen.
+\newblock {Symbolic Execution for Software Testing: Three Decades Later}.
+\newblock {\em Commun. ACM}, 56(2):82--90, February 2013.
+
+\bibitem{Das:tool}
+M.~Das, S.~Lerner, and M.~Seigle.
+\newblock {ESP: Path-sensitive Program Verification in Polynomial Time}.
+\newblock {\em SIGPLAN Not.}, 37(5):57--68, May 2002.
+
+\bibitem{survey:automated}
+V.~D'silva, D.~Kroening, and G.~Weissenbacher.
+\newblock {A Survey of Automated Techniques for Formal Software Verification}.
+\newblock {\em Computer-Aided Design of Integrated Circuits and Systems, IEEE
+  Transactions on}, 27(7):1165--1178, July 2008.
+
+\bibitem{Gu:fix}
+Z.~Gu, Earl~T. Barr, David~J. Hamilton, and Z.~Su.
+\newblock {Has the Bug Really Been Fixed?}
+\newblock In {\em {Proceedings of the 32Nd ACM/IEEE International Conference on
+  Software Engineering - Volume 1}}, {ICSE '10}, pages 55--64, New York, NY,
+  USA, 2010. ACM.
+
+\bibitem{Halevi:attack1}
+T.~Halevi and N.~Saxena.
+\newblock {A Closer Look at Keyboard Acoustic Emanations: Random Passwords,
+  Typing Styles and Decoding Techniques}.
+\newblock In {\em {Proceedings of the 7th ACM Symposium on Information,
+  Computer and Communications Security}}, {ASIACCS '12}, pages 89--90, New
+  York, NY, USA, 2012. ACM.
+
+\bibitem{DBLP:attacks}
+M.~Hanspach and J.~Keller.
+\newblock {A Taxonomy for Attack Patterns on Information Flows in
+  Component-Based Operating Systems}.
+\newblock {\em CoRR}, abs/1403.1165, 2014.
+
+\bibitem{open:OSSTMM}
+P.~Herzog.
+\newblock {Open Source Security Testing Methodology Manual (OSSTMM)}.
+\newblock {\em http://www.isecom.org/research/osstmm.html}.
+
+\bibitem{King:2008}
+D.~King, B.~Hicks, M.~Hicks, and T.~Jaeger.
+\newblock {Implicit Flows: Can'T Live with `Em, Can'T Live Without `Em}.
+\newblock In {\em {Proceedings of the 4th International Conference on
+  Information Systems Security}}, {ICISS '08}, pages 56--70, Berlin,
+  Heidelberg, 2008. Springer-Verlag.
+
+\bibitem{Klein:attack3}
+G.~Klein, K.~Elphinstone, G.~Heiser, J.~Andronick, D.~Cock, P.~Derrin,
+  D.~Elkaduwe, K.~Engelhardt, R.~Kolanski, M.~Norrish, T.~Sewell, H.~Tuch, and
+  S.~Winwood.
+\newblock {seL4: Formal Verification of an OS Kernel}.
+\newblock In {\em {Proceedings of the ACM SIGOPS 22Nd Symposium on Operating
+  Systems Principles}}, {SOSP '09}, pages 207--220, New York, NY, USA, 2009.
+  ACM.
+
+\bibitem{Kushwaha:test}
+D.S. Kushwaha and A.~K. Misra.
+\newblock {Software Test Effort Estimation}.
+\newblock {\em SIGSOFT Softw. Eng. Notes}, 33(3):6:1--6:5, May 2008.
+
+\bibitem{Lampson:attack2}
+Butler~W. Lampson.
+\newblock {A Note on the Confinement Problem}.
+\newblock {\em Commun. ACM}, 16(10):613--615, October 1973.
+
+\bibitem{Myers:static}
+Andrew~C. Myers.
+\newblock {JFlow: Practical Mostly-static Information Flow Control}.
+\newblock In {\em {Proceedings of the 26th ACM SIGPLAN-SIGACT Symposium on
+  Principles of Programming Languages}}, {POPL '99}, pages 228--241, New York,
+  NY, USA, 1999. ACM.
+
+\bibitem{Robinson:attack3}
+J.~Robinson, W.~S. Harrison, N.~Hanebutte, P.~Oman, and J.~Alves-Foss.
+\newblock {Implementing Middleware for Content Filtering and Information Flow
+  Control}.
+\newblock In {\em {Proceedings of the 2007 ACM Workshop on Computer Security
+  Architecture}}, {CSAW '07}, pages 47--53, New York, NY, USA, 2007. ACM.
+
+\bibitem{Sabelfeld:dynamic}
+A.~Sabelfeld and A.~Russo.
+\newblock {From Dynamic to Static and Back: Riding the Roller Coaster of
+  Information-flow Control Research}.
+\newblock In {\em {Proceedings of the 7th International Andrei Ershov Memorial
+  Conference on Perspectives of Systems Informatics}}, {PSI'09}, pages
+  352--365, Berlin, Heidelberg, 2010. Springer-Verlag.
+
+\bibitem{book:analysis}
+N.~Tobias, H.~Benedikt, and G.~Orna.
+\newblock {\em
+  https://books.google.de/books?id=ckaVltDIatwC\&pg=PA340\&lpg=PA340\&dq=denning+style+enforcement\&source=bl\&ots=CfLmuX9rVl\&sig=GdxtBWzY-Nfex3s27N22Zv-98qY\&hl=en\&sa=X\&ved=0CCYQ6AEwAWoVChMIjqyisYnYxwIVRBcsCh3PGAE1\#v=onepage\&q=denning\%20style\%20enforcement\&f=false}.
+
+\bibitem{vanEck:attack1}
+W.~van Eck.
+\newblock {Electromagnetic Radiation from Video Display Units: An Eavesdropping
+  Risk?}
+\newblock {\em Comput. Secur.}, 4(4):269--286, December 1985.
+
+\bibitem{Volpano:static}
+D.~Volpano, C.~Irvine, and G.~Smith.
+\newblock {A Sound Type System for Secure Flow Analysis}.
+\newblock {\em J. Comput. Secur.}, 4(2-3):167--187, January 1996.
+
+\bibitem{Ward:code}
+M.~Ward.
+\newblock {\em {Proving Program Refinements and Transformations}}.
+\newblock PhD thesis, 1986.
+\newblock AAID-90357.
+
+\bibitem{Yu:attack}
+Y.~Yu and T.~Chiueh.
+\newblock {Display-only File Server: A Solution Against Information Theft Due
+  to Insider Attack}.
+\newblock In {\em {Proceedings of the 4th ACM Workshop on Digital Rights
+  Management}}, {DRM '04}, pages 31--39, New York, NY, USA, 2004. ACM.
 
 \end{thebibliography}

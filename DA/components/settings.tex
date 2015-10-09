@@ -10,11 +10,42 @@
 %\setkomafont{pagehead}{\normalfont\rmfamily}
 \setkomafont{pagenumber}{\normalfont\rmfamily}
 
+\usepackage[linesnumbered,ruled]{algorithm2e}
+\usepackage{caption}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{algcompatible}
+\usepackage{wrapfig}
+\usepackage{caption}
 %% allow sophisticated control structures
 \usepackage{ifthen}
-
 \usepackage{listings}
 \usepackage{color}
+\usepackage{lipsum}
+
+\makeatletter
+\newenvironment{breakablealgorithm}
+  {% \begin{breakablealgorithm}
+   \begin{center}
+     \refstepcounter{algorithm}% New algorithm
+     \hrule height.8pt depth0pt \kern2pt% \@fs@pre for \@fs@ruled
+     \renewcommand{\caption}[2][\relax]{% Make a new \caption
+       {\raggedright\textbf{\ALG@name~\thealgorithm} ##2\par}%
+       \ifx\relax##1\relax % #1 is \relax
+         \addcontentsline{loa}{algorithm}{\protect\numberline{\thealgorithm}##2}%
+       \else % #1 is not \relax
+         \addcontentsline{loa}{algorithm}{\protect\numberline{\thealgorithm}##1}%
+       \fi
+       \kern2pt\hrule\kern2pt
+     }
+  }{% \end{breakablealgorithm}
+     \kern2pt\hrule\relax% \@fs@post for \@fs@ruled
+   \end{center}
+  }
+\makeatother
+
+\usepackage{enumitem}
+\setlist[description]{leftmargin=\parindent,labelindent=\parindent,itemsep=1pt,parsep=0pt,topsep=0pt}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -93,7 +124,6 @@
 
 % use initals dropped caps - doesn't work with PDF
 %\usepackage{dropping}
-
 
 \usepackage{styles/shortoverview}
 %----------------------------------------------------

@@ -2,44 +2,46 @@
 \select@language {english}
 \select@language {german}
 \select@language {english}
-\contentsline {chapter}{Acknowledgements}{vii}{section*.1}
-\contentsline {chapter}{Abstract}{ix}{section*.2}
-\contentsline {chapter}{Outline of the Thesis}{xiii}{section*.4}
+\contentsline {chapter}{Acknowledgements}{iv}{section*.3}
+\contentsline {chapter}{Abstract}{v}{section*.4}
+\contentsline {chapter}{Outline of the Thesis}{viii}{section*.6}
 \contentsline {part}{\numberline {I}Introduction and Theory}{1}{part.1}
 \contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}
 \contentsline {section}{\numberline {1.1}Information Exposure Bug}{4}{section.1.1}
-\contentsline {section}{\numberline {1.2}Motivation with Example}{4}{section.1.2}
-\contentsline {section}{\numberline {1.3}Security Hazards}{6}{section.1.3}
-\contentsline {section}{\numberline {1.4}Basic Terminologies}{6}{section.1.4}
-\contentsline {section}{\numberline {1.5}Contribution}{7}{section.1.5}
-\contentsline {chapter}{\numberline {2}Technical and Scientific Fundamentals}{9}{chapter.2}
-\contentsline {section}{\numberline {2.1}Information Exposure Bug with examples}{9}{section.2.1}
-\contentsline {section}{\numberline {2.2}Different Attacks}{9}{section.2.2}
-\contentsline {section}{\numberline {2.3}Analysis Techniques}{9}{section.2.3}
-\contentsline {section}{\numberline {2.4}Program Representation}{9}{section.2.4}
-\contentsline {section}{\numberline {2.5}Code Transformation}{9}{section.2.5}
-\contentsline {section}{\numberline {2.6}Analysis Methods}{9}{section.2.6}
-\contentsline {chapter}{\numberline {3}Related Work}{11}{chapter.3}
-\contentsline {part}{\numberline {II}Design and Development}{13}{part.2}
-\contentsline {chapter}{\numberline {4}Localization Algorithm}{15}{chapter.4}
-\contentsline {chapter}{\numberline {5}Approach}{17}{chapter.5}
-\contentsline {section}{\numberline {5.1}About the Tool}{17}{section.5.1}
-\contentsline {section}{\numberline {5.2}Bug Detection with SMT}{17}{section.5.2}
-\contentsline {section}{\numberline {5.3}Semi Automated Patch insertion Wizard}{17}{section.5.3}
-\contentsline {chapter}{\numberline {6}Implementation}{19}{chapter.6}
-\contentsline {part}{\numberline {III}Evaluation and Discussion}{21}{part.3}
-\contentsline {chapter}{\numberline {7}Evaluation}{23}{chapter.7}
-\contentsline {section}{\numberline {7.1}Test Setup}{23}{section.7.1}
-\contentsline {section}{\numberline {7.2}Methodology}{23}{section.7.2}
-\contentsline {section}{\numberline {7.3}Correctness validation}{23}{section.7.3}
-\contentsline {section}{\numberline {7.4}Efficiency and Overhead}{23}{section.7.4}
-\contentsline {section}{\numberline {7.5}Program Behaviour}{23}{section.7.5}
-\contentsline {section}{\numberline {7.6}Usefulness of the generated Patches}{23}{section.7.6}
-\contentsline {chapter}{\numberline {8}Discussion}{25}{chapter.8}
-\contentsline {section}{\numberline {8.1}Limitations}{25}{section.8.1}
-\contentsline {section}{\numberline {8.2}Applications}{25}{section.8.2}
-\contentsline {section}{\numberline {8.3}Future Work}{25}{section.8.3}
-\contentsline {chapter}{\numberline {9}Summary and Conclusion}{27}{chapter.9}
-\contentsline {part}{Appendix}{31}{part*.8}
-\contentsline {chapter}{\numberline {A}Detailed Descriptions}{31}{appendix.A}
-\contentsline {chapter}{\nonumberline Bibliography}{33}{appendix*.9}
+\contentsline {section}{\numberline {1.2}Motivation with Example}{5}{section.1.2}
+\contentsline {section}{\numberline {1.3}Security}{7}{section.1.3}
+\contentsline {section}{\numberline {1.4}Basic Terminologies}{8}{section.1.4}
+\contentsline {section}{\numberline {1.5}Contribution}{9}{section.1.5}
+\contentsline {chapter}{\numberline {2}Technical and Scientific Fundamentals}{10}{chapter.2}
+\contentsline {section}{\numberline {2.1}Sources of information flows with examples}{10}{section.2.1}
+\contentsline {section}{\numberline {2.2}Different Attacks}{10}{section.2.2}
+\contentsline {section}{\numberline {2.3}Analysis Techniques}{11}{section.2.3}
+\contentsline {section}{\numberline {2.4}Program Transformation}{13}{section.2.4}
+\contentsline {chapter}{\numberline {3}Related Work}{14}{chapter.3}
+\contentsline {part}{\numberline {II}Design and Development}{15}{part.2}
+\contentsline {chapter}{\numberline {4}System Overview}{17}{chapter.4}
+\contentsline {chapter}{\numberline {5}Localization Algorithm}{19}{chapter.5}
+\contentsline {chapter}{\numberline {6}Approach}{23}{chapter.6}
+\contentsline {section}{\numberline {6.1}About the Tool}{23}{section.6.1}
+\contentsline {section}{\numberline {6.2}Bug Detection with tainting and triggering}{23}{section.6.2}
+\contentsline {section}{\numberline {6.3}Semi Automated Patch insertion Wizard}{27}{section.6.3}
+\contentsline {section}{\numberline {6.4}Tool Demo}{28}{section.6.4}
+\contentsline {chapter}{\numberline {7}Implementation}{32}{chapter.7}
+\contentsline {part}{\numberline {III}Evaluation and Discussion}{33}{part.3}
+\contentsline {chapter}{\numberline {8}Empirical Evaluation}{35}{chapter.8}
+\contentsline {section}{\numberline {8.1}Test Setup}{35}{section.8.1}
+\contentsline {section}{\numberline {8.2}Methodology}{35}{section.8.2}
+\contentsline {section}{\numberline {8.3}Results and Constraints}{38}{section.8.3}
+\contentsline {section}{\numberline {8.4}Correctness validation}{38}{section.8.4}
+\contentsline {section}{\numberline {8.5}Correctness validation}{38}{section.8.5}
+\contentsline {section}{\numberline {8.6}Efficiency and Overhead}{39}{section.8.6}
+\contentsline {section}{\numberline {8.7}Program Behaviour}{40}{section.8.7}
+\contentsline {section}{\numberline {8.8}Usefulness of the generated Patches}{40}{section.8.8}
+\contentsline {chapter}{\numberline {9}Discussion}{41}{chapter.9}
+\contentsline {section}{\numberline {9.1}Limitations}{41}{section.9.1}
+\contentsline {section}{\numberline {9.2}Applications}{41}{section.9.2}
+\contentsline {section}{\numberline {9.3}Future Work}{41}{section.9.3}
+\contentsline {chapter}{\numberline {10}Summary and Conclusion}{42}{chapter.10}
+\contentsline {part}{Appendix}{45}{part*.27}
+\contentsline {chapter}{\numberline {A}Definitions and Abbrevations}{45}{appendix.A}
+\contentsline {chapter}{\nonumberline Bibliography}{46}{appendix*.28}

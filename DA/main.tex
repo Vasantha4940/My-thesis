@@ -53,23 +53,24 @@
 %	
 %	\input{components/titlepage}
 	
-	
+	\let\cleardoublepage\clearpage
 %	\input{components/cover_maschmeyer}
 	\clearemptydoublepage
 	
 	\input{components/titlepage}
 	
-	
+	\let\cleardoublepage\clearpage
 	\input{components/disclaimer}
-	
+	\let\cleardoublepage\clearpage
 	\input{components/acknowledgements}
-	
+	\let\cleardoublepage\clearpage
 	\input{components/abstract}
-
+\let\cleardoublepage\clearpage
 	\tableofcontents
   
-  \input{components/outline}
+	  \input{components/outline}
 
+ 
 	\mainmatter
 	
 	
@@ -80,8 +81,9 @@
 		% ---------------------------------------------------------------------------
 		\part[Introduction and Theory]{Introduction and Theory}
 		\label{part:introAndBackgroundTheory}
+		\let\cleardoublepage\clearpage
 		\input{chapters/Introduction}
-		
+		\let\cleardoublepage\clearpage
 		
 		%
 		%% ---------------------------------------------------------------------------
@@ -91,7 +93,9 @@
 		%%% ---------------------------------------------------------------------------
 		\part[Design and Development]{Design and Development}
 		\label{part:designAndDev}
+		\let\cleardoublepage\clearpage
 		\input{chapters/DesignandDevelopment}
+		\let\cleardoublepage\clearpage
 		
 		%
 		%% ---------------------------------------------------------------------------
@@ -101,7 +105,10 @@
 		%%% ---------------------------------------------------------------------------
 		\part[Evaluation and Discussion]{Evaluation and Discussion}
 		\label{part:evalAnddis}
-		\input{chapters/Evaluation}
+		\let\cleardoublepage\clearpage
+		\input{
+		chapters/Evaluation}
+		\let\cleardoublepage\clearpage
 		
 		%
 		% ---------------------------------------------------------------------------
@@ -117,7 +124,7 @@
 		
 		\input{chapters/oneAppendix}
 		
-	
+	\let\cleardoublepage\clearpage
 
 
   \clearemptydoublepage
