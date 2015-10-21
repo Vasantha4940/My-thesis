@@ -8,12 +8,15 @@ Warning--to sort, need author or key in top:vul
 Warning--to sort, need author or key in top:25
 Warning--to sort, need author or key in forbes:bill
 Warning--to sort, need author or key in mitre:CWE
+Warning--to sort, need author or key in Juliet:test
 Warning--to sort, need author or key in wiki:analysis
 Warning--empty author in forbes:bill
 Warning--empty title in forbes:bill
 Warning--empty year in forbes:bill
 Warning--empty author in mitre:CWE
 Warning--empty year in mitre:CWE
+Warning--empty author in Juliet:test
+Warning--empty year in Juliet:test
 Warning--empty author in top:25
 Warning--empty year in top:25
 Warning--empty author in top:vul
@@ -24,48 +27,49 @@ Warning--empty author in cve:details
 Warning--empty title in cve:details
 Warning--empty year in Baracaldo:attack
 Warning--empty year in open:OSSTMM
+Warning--empty year in ibing:path
 Warning--empty title in book:analysis
 Warning--empty year in book:analysis
 Warning--empty school in Ward:code
-You've used 28 entries,
+You've used 31 entries,
             2118 wiz_defined-function locations,
-            686 strings with 9291 characters,
-and the built_in function-call counts, 9618 in all, are:
-= -- 989
-> -- 387
-< -- 10
-+ -- 156
-- -- 128
-* -- 702
-:= -- 1501
-add.period$ -- 86
-call.type$ -- 28
-change.case$ -- 144
+            708 strings with 9912 characters,
+and the built_in function-call counts, 10704 in all, are:
+= -- 1103
+> -- 416
+< -- 13
++ -- 167
+- -- 136
+* -- 775
+:= -- 1654
+add.period$ -- 96
+call.type$ -- 31
+change.case$ -- 156
 chr.to.int$ -- 0
-cite$ -- 52
-duplicate$ -- 408
-empty$ -- 761
-format.name$ -- 128
-if$ -- 2066
+cite$ -- 59
+duplicate$ -- 464
+empty$ -- 858
+format.name$ -- 136
+if$ -- 2315
 int.to.chr$ -- 0
-int.to.str$ -- 28
-missing$ -- 27
-newline$ -- 135
-num.names$ -- 44
-pop$ -- 161
+int.to.str$ -- 31
+missing$ -- 30
+newline$ -- 149
+num.names$ -- 50
+pop$ -- 180
 preamble$ -- 1
-purify$ -- 120
+purify$ -- 129
 quote$ -- 0
-skip$ -- 297
+skip$ -- 338
 stack$ -- 0
-substring$ -- 581
-swap$ -- 107
-text.length$ -- 10
+substring$ -- 652
+swap$ -- 128
+text.length$ -- 13
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 112
-warning$ -- 24
-while$ -- 88
-width$ -- 30
-write$ -- 307
-(There were 24 warnings)
+type$ -- 124
+warning$ -- 28
+while$ -- 99
+width$ -- 33
+write$ -- 340
+(There were 28 warnings)

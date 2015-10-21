@@ -326,3 +326,10 @@ year = "1976"
 	title = "{Top 25 vulnerabilities}"
 }
 
+@phdthesis{Ward:code,
+	author = "Ward, M.",
+	note = "AAID-90357",
+	title = "{Proving Program Refinements and Transformations}",
+	year = "1986"
+}
+

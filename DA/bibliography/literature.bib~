@@ -326,3 +326,40 @@ year = "1976"
 	title = "{Top 25 vulnerabilities}"
 }
 
+@phdthesis{Ward:code,
+	author = "Ward, M.",
+	note = "AAID-90357",
+	title = "{Proving Program Refinements and Transformations}",
+	year = "1986"
+}
+
+@incollection{ibing:path,
+	author = "Ibing, A.",
+	booktitle = "{Software Engineering and Formal Methods}",
+	doi = "10.1007/978-3-319-15201-1_20",
+	editor = "Canal, Carlos and Idani, Akram",
+	isbn = "978-3-319-15200-4",
+	pages = "311--322",
+	publisher = "Springer International Publishing",
+	series = "{Lecture Notes in Computer Science}",
+	title = "{Path-Sensitive Race Detection with Partial Order Reduced Symbolic Execution}",
+	url = "http://dx.doi.org/10.1007/978-3-319-15201-1_20",
+	volume = "8938"
+}
+
+@inproceedings{Ibing:fixed,
+	address = "Washington, DC, USA",
+	author = "Ibing, Andreas and Mai, Alexandra",
+	booktitle = "{Proceedings of the 2015 IEEE 16th International Symposium on High Assurance Systems Engineering}",
+	isbn = "978-1-4799-8111-3",
+	pages = "44--51",
+	publisher = "IEEE Computer Society",
+	series = "{HASE '15}",
+	title = "{A Fixed-Point Algorithm for Automated Static Detection of Infinite Loops}",
+	year = "2015"
+}
+
+@article{Juliet:test,
+	journal = "http://samate.nist.gov/SRD/testsuite.php"
+}
+

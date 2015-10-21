@@ -8,6 +8,10 @@
 {CWE}.
 \newblock {\em https://cwe.mitre.org/}.
 
+\bibitem{Juliet:test}
+{Source for Juliet Test Suite}.
+\newblock {\em http://samate.nist.gov/SRD/testsuite.php}.
+
 \bibitem{top:25}
 {Top 25 vulnerabilities}.
 \newblock {\em http://www.veracode.com/directory/cwe-sans-top-25}.
@@ -87,6 +91,22 @@ M.~Hanspach and J.~Keller.
 P.~Herzog.
 \newblock {Open Source Security Testing Methodology Manual (OSSTMM)}.
 \newblock {\em http://www.isecom.org/research/osstmm.html}.
+
+\bibitem{ibing:path}
+A.~Ibing.
+\newblock {Path-Sensitive Race Detection with Partial Order Reduced Symbolic
+  Execution}.
+\newblock In Carlos Canal and Akram Idani, editors, {\em {Software Engineering
+  and Formal Methods}}, volume 8938 of {\em {Lecture Notes in Computer
+  Science}}, pages 311--322. Springer International Publishing.
+
+\bibitem{Ibing:fixed}
+Andreas Ibing and Alexandra Mai.
+\newblock {A Fixed-Point Algorithm for Automated Static Detection of Infinite
+  Loops}.
+\newblock In {\em {Proceedings of the 2015 IEEE 16th International Symposium on
+  High Assurance Systems Engineering}}, {HASE '15}, pages 44--51, Washington,
+  DC, USA, 2015. IEEE Computer Society.
 
 \bibitem{King:2008}
 D.~King, B.~Hicks, M.~Hicks, and T.~Jaeger.

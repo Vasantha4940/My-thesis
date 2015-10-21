@@ -28,16 +28,14 @@
 \BOOKMARK [1][-]{section.8.1}{Test Setup}{chapter.8}% 28
 \BOOKMARK [1][-]{section.8.2}{Methodology}{chapter.8}% 29
 \BOOKMARK [1][-]{section.8.3}{Results and Constraints}{chapter.8}% 30
-\BOOKMARK [1][-]{section.8.4}{Correctness validation}{chapter.8}% 31
-\BOOKMARK [1][-]{section.8.5}{Correctness validation}{chapter.8}% 32
-\BOOKMARK [1][-]{section.8.6}{Efficiency and Overhead}{chapter.8}% 33
-\BOOKMARK [1][-]{section.8.7}{Program Behaviour}{chapter.8}% 34
-\BOOKMARK [1][-]{section.8.8}{Usefulness of the generated Patches}{chapter.8}% 35
-\BOOKMARK [0][-]{chapter.9}{Discussion}{part.3}% 36
-\BOOKMARK [1][-]{section.9.1}{Limitations}{chapter.9}% 37
-\BOOKMARK [1][-]{section.9.2}{Applications}{chapter.9}% 38
-\BOOKMARK [1][-]{section.9.3}{Future Work}{chapter.9}% 39
-\BOOKMARK [0][-]{chapter.10}{Summary and Conclusion}{part.3}% 40
-\BOOKMARK [-1][]{part*.27}{Appendix}{}% 41
-\BOOKMARK [0][-]{appendix.A}{Definitions and Abbrevations}{part*.27}% 42
-\BOOKMARK [0][-]{appendix*.28}{Bibliography}{part*.27}% 43
+\BOOKMARK [1][-]{section.8.4}{Efficiency and Overhead}{chapter.8}% 31
+\BOOKMARK [1][-]{section.8.5}{Program Behaviour}{chapter.8}% 32
+\BOOKMARK [1][-]{section.8.6}{Usefulness of the generated Patches}{chapter.8}% 33
+\BOOKMARK [1][-]{section.8.7}{Threats to Validity}{chapter.8}% 34
+\BOOKMARK [2][-]{subsection.8.7.1}{External Validity:}{section.8.7}% 35
+\BOOKMARK [2][-]{subsection.8.7.2}{Internal Validity:}{section.8.7}% 36
+\BOOKMARK [0][-]{chapter.9}{Conclusion and Future Work}{part.3}% 37
+\BOOKMARK [-1][]{part*.35}{Appendix}{}% 38
+\BOOKMARK [0][-]{appendix.A}{Definitions and Abbrevations}{part*.35}% 39
+\BOOKMARK [0][-]{appendix.B}{Localizer}{part*.35}% 40
+\BOOKMARK [0][-]{appendix*.36}{Bibliography}{part*.35}% 41

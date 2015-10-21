@@ -315,3 +315,14 @@ year = "1976"
 	year = "2010"
 }
 
+@article{book:analysis,
+	author = "Tobias, N. and Benedikt, H. and Orna, G.",
+	booktitle = "{Software Safety and Security: Tools for Analysis and Verification}",
+	journal = "https://books.google.de/books?id=ckaVltDIatwC\&pg=PA340\&lpg=PA340\&dq=denning+style+enforcement\&source=bl\&ots=CfLmuX9rVl\&sig=GdxtBWzY-Nfex3s27N22Zv-98qY\&hl=en\&sa=X\&ved=0CCYQ6AEwAWoVChMIjqyisYnYxwIVRBcsCh3PGAE1\#v=onepage\&q=denning\%20style\%20enforcement\&f=false"
+}
+
+@article{top:25,
+	journal = "http://www.veracode.com/directory/cwe-sans-top-25",
+	title = "{Top 25 vulnerabilities}"
+}
+

@@ -37,7 +37,7 @@ fix should be inserted. Based on the bug location the developed algorithm should
 indicate where the quick fix should be inserted in the program.
 We can consider a bug fix to be a valid fix if it is able to remove the confidential parameter inside a
 function call to a system trust boundary. After the quick fix location was determined and the format
-of the quick fix was chosen than the quick fix will be inserted in the program with the
+of the quick fix was chosen then the quick fix will be inserted in the program with the
 help of the Eclipse CDT/LTK API.
 
 
